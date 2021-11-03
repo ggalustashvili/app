@@ -19,7 +19,9 @@ export class TodoListComponent implements OnInit {
   fetchToDo(){
     this.todoService.fetchToDos().subscribe( element => this.todoList = element )
   }
-
+  deleteToDo(index:number){
+    this.todoList.splice(index , 1);
+  }
 
 
 }

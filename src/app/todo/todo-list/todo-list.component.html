@@ -1,1 +1,2 @@
-<app-todo-item *ngFor="let todo of todoList" [todoInfo]="todo" ></app-todo-item>
+<app-todo-item *ngFor="let todo of todoList let i = index" (click)="deleteToDo(i)" [todoInfo]="todo" ></app-todo-item>
+n
