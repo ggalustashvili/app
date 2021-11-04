@@ -5,18 +5,21 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { TodoListComponent } from './todo/todo-list/todo-list.component';
 import { TodoItemComponent } from './todo/todo-list/todo-item/todo-item.component';
-import {GetTodosService} from "../services/get-todos.service";
+import { FilterPipe } from './pipe/filter.pipe';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     TodoListComponent,
-    TodoItemComponent
+    TodoItemComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

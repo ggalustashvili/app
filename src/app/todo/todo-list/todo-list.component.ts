@@ -9,6 +9,7 @@ import {TodoModel} from "../../models/todo/todo-model";
 })
 export class TodoListComponent implements OnInit {
   todoList: any
+  search!:string;
   constructor(private todoService : GetTodosService ) { }
 
   ngOnInit(): void {

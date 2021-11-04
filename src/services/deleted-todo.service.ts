@@ -10,7 +10,7 @@ export class DeletedTodoService {
 
   addDeletedTodo(todo:any): void{
     this.deletedTodo.push(todo);
-    
+
   }
 
 }

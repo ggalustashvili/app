@@ -1,2 +1,3 @@
-<app-todo-item *ngFor="let todo of todoList let i = index" (click)="deleteToDo(i)" [todoInfo]="todo" ></app-todo-item>
-n
+<input type="text" name ="search" [(ngModel)]="search"/>
+<app-todo-item *ngFor="let todo of todoList  | filter:search  let i = index " (click)="deleteToDo(i)" [todoInfo]="todo" ></app-todo-item>
+
