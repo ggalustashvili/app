@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {GetTodosService} from "../../../services/get-todos.service";
 import {TodoModel} from "../../models/todo/todo-model";
+import {Subject} from "rxjs";
+import {debounceTime, distinctUntilChanged} from "rxjs/operators";
 
 @Component({
   selector: 'app-todo-list',
@@ -9,12 +11,15 @@ import {TodoModel} from "../../models/todo/todo-model";
 })
 export class TodoListComponent implements OnInit {
   todoList: any
-  search!:string;
+  searchValue!:string
+  searchUpdated = new Subject<string>()
   constructor(private todoService : GetTodosService ) { }
 
   ngOnInit(): void {
-  this.fetchToDo()
-
+    this.fetchToDo()
+    this.searchUpdated.pipe(debounceTime(700),distinctUntilChanged()).subscribe( value => {
+    this.searchValue = value;
+    });
   }
 
   fetchToDo(){
